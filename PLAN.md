@@ -28,8 +28,10 @@ A private, security-hardened desktop journal. Forked from StoryPad, with encrypt
 1. Fork + clone into side-hustles/locked-leaf. ✅
 2. Run the macOS build: `bin/dev --community-macos` ✅
    - Check: app opens and I can write an entry.
-3. Remove Firebase Analytics, Crashlytics, and in-app purchases.
+3. Remove Firebase Analytics, Crashlytics, and in-app purchases. ✅
    - Check: app still runs, and no network calls go to Firebase.
+   - Done in 3 commits: disable Firebase → remove Firebase (analytics, crashlytics, firestore, config) → remove RevenueCat (all features unlocked locally).
+   - Android Firebase Gradle plugins left in place (Android out of scope).
 4. Quick win: make a "Daily" template with my habits as a checklist. Start using it.
    - Check: I can fill it in for today in under a minute.
 5. Build a release .app for daily use (fast launch), keep bin/dev for development.
