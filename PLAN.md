@@ -24,7 +24,7 @@ A private, security-hardened desktop journal. Forked from StoryPad, with encrypt
 
 ## Milestones (one at a time)
 
-### M1 — Fork running on my Mac  ← current
+### M1 — Fork running on my Mac ✅
 1. Fork + clone into side-hustles/locked-leaf. ✅
 2. Run the macOS build: `bin/dev --community-macos` ✅
    - Check: app opens and I can write an entry.
@@ -34,7 +34,10 @@ A private, security-hardened desktop journal. Forked from StoryPad, with encrypt
    - Android Firebase Gradle plugins left in place (Android out of scope).
 4. Quick win: make a "Daily" template with my habits as a checklist. Start using it.
    - Check: I can fill it in for today in under a minute.
-5. Build a release .app for daily use (fast launch), keep bin/dev for development.
+5. Build a release .app for daily use (fast launch), keep bin/dev for development. ✅
+   - Build: `flutter build macos --release --flavor community -t lib/main_community.dart --dart-define=CUPERTINO=yes --dart-define-from-file=bin/.tmp/private_keys/dart_defines/community.json`
+   - Install: `cp -R build/macos/Build/Products/Release-community/storypad.app "/Applications/Locked Leaf.app"`
+   - Debug and release share one database (same bundle ID) — don't run both at once.
 
 ## Setup fixes so far (M1)
 - Signing: Team = my Personal Team (4ZD6MH342Y), bundle ID com.aditiabhang.lockedleaf (community configs).
@@ -42,7 +45,7 @@ A private, security-hardened desktop journal. Forked from StoryPad, with encrypt
 - ObjectBox needs a macOS App Group prefixed with my Team ID → set to 4ZD6MH342Y in base_box.dart + community entitlements.
 - Impeller crashed on window resize → disabled via FLTEnableImpeller=false in macos/Runner/Info.plist.
 
-### M2 — Encrypt data at rest (to plan after M1)
+### M2 — Encrypt data at rest  ← next
 - First step: upgrade to latest Flutter on its own. Rebuild, check, commit.
 
 ### M3 — Habit tracker (new feature, built MVVM-style like the rest of StoryPad)
