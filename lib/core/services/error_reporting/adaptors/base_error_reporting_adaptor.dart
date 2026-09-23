@@ -1,11 +1,10 @@
-import 'package:storypad/core/constants/app_constants.dart';
 import 'package:flutter/foundation.dart';
-import 'package:storypad/core/services/error_reporting/adaptors/firebase_crashlytics_adaptor.dart';
 import 'package:storypad/core/services/error_reporting/adaptors/none_error_reporting_adaptor.dart';
 
 abstract class BaseErrorReportingAdaptor {
   static BaseErrorReportingAdaptor create() {
-    return kFirebaseAvailable ? FirebaseCrashlyticsAdaptor() : NoneErrorReportingAdaptor();
+    // Locked Leaf: no crash-reporting backend. Errors are printed locally, never sent.
+    return NoneErrorReportingAdaptor();
   }
 
   Future<void> recordError(Object error, StackTrace? stack, {bool fatal = false});

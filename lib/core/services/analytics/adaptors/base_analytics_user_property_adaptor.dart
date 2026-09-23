@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:storypad/core/constants/app_constants.dart';
-import 'package:storypad/core/services/analytics/adaptors/firebase_analytics_user_property_adaptor.dart';
 import 'package:storypad/core/services/analytics/adaptors/none_analytics_user_property_adaptor.dart';
 import 'package:storypad/core/types/add_on_type.dart';
 import 'package:storypad/core/types/app_logo.dart';
@@ -11,7 +9,8 @@ import 'package:storypad/core/types/time_format_option.dart';
 
 abstract class BaseAnalyticsUserPropertyAdaptor {
   static BaseAnalyticsUserPropertyAdaptor create() {
-    return kFirebaseAvailable ? FirebaseAnalyticsUserPropertyAdaptor() : NoneAnalyticsUserPropertyAdaptor();
+    // Locked Leaf: no analytics backend. User properties are dropped locally.
+    return NoneAnalyticsUserPropertyAdaptor();
   }
 
   // ---------------------------------------------------------------------------

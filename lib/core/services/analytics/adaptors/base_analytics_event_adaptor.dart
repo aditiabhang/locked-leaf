@@ -1,5 +1,4 @@
 import 'package:flutter/foundation.dart';
-import 'package:storypad/core/constants/app_constants.dart';
 import 'package:storypad/core/databases/models/asset_db_model.dart';
 import 'package:storypad/core/databases/models/collection_db_model.dart';
 import 'package:storypad/core/databases/models/story_db_model.dart';
@@ -7,14 +6,14 @@ import 'package:storypad/core/databases/models/tag_db_model.dart';
 import 'package:storypad/core/databases/models/template_db_model.dart';
 import 'package:storypad/core/objects/backup_file_object.dart';
 import 'package:storypad/core/objects/cloud_file_object.dart';
-import 'package:storypad/core/services/analytics/adaptors/firebase_analytics_event_adaptor.dart';
 import 'package:storypad/core/services/analytics/adaptors/none_analytics_event_adaptor.dart';
 import 'package:storypad/widgets/base_view/base_route.dart';
 import 'package:storypad/widgets/bottom_sheets/base_bottom_sheet.dart';
 
 abstract class BaseAnalyticsEventAdaptor {
   static BaseAnalyticsEventAdaptor create() {
-    return kFirebaseAvailable ? FirebaseAnalyticsEventAdaptor() : NoneAnalyticsEventAdaptor();
+    // Locked Leaf: no analytics backend. Events are dropped locally.
+    return NoneAnalyticsEventAdaptor();
   }
 
   // ---------------------------------------------------------------------------

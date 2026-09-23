@@ -2,7 +2,6 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:easy_localization/easy_localization.dart' show EasyLocalization;
-import 'package:firebase_core/firebase_core.dart' show FirebaseOptions;
 import 'package:macos_window_utils/window_manipulator.dart' show WindowManipulator;
 import 'package:storypad/app.dart' show App;
 import 'package:storypad/core/initializers/android_photo_picker_initializer.dart' show AndroidPhotoPickerInitializer;
@@ -11,7 +10,6 @@ import 'package:storypad/core/initializers/backup_initializer.dart' show BackupR
 import 'package:storypad/core/initializers/constants_initializer.dart' show ConstantsInitializer;
 import 'package:storypad/core/initializers/database_initializer.dart' show DatabaseInitializer;
 import 'package:storypad/core/initializers/crashlytics_initializer.dart' show CrashlyticsInitializer;
-import 'package:storypad/core/initializers/firebase_initializer.dart' show FirebaseInitializer;
 import 'package:storypad/core/initializers/remote_config_initializer.dart' show RemoteConfigInitializer;
 import 'package:storypad/core/initializers/cloud_storage_initializer.dart';
 import 'package:storypad/core/initializers/legacy_storypad_initializer.dart' show LegacyStoryPadInitializer;
@@ -21,15 +19,13 @@ import 'package:storypad/core/initializers/theme_initializer.dart' show ThemeIni
 import 'package:storypad/provider_scope.dart' show ProviderScope;
 import 'package:storypad/widgets/sp_splash_screen_wrapper.dart';
 
-void main({
-  FirebaseOptions? firebaseOptions,
-}) async {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await SpSplashScreenWrapper.ensureInitialized();
 
   runApp(
     SpSplashScreenWrapper(
-      onLoad: () => _initializeApp(firebaseOptions: firebaseOptions),
+      onLoad: () => _initializeApp(),
       app: const ProviderScope(
         child: App(),
       ),
@@ -37,11 +33,8 @@ void main({
   );
 }
 
-Future<void> _initializeApp({
-  FirebaseOptions? firebaseOptions,
-}) async {
-  // firebase initialize (never blocks startup beyond its own timeout)
-  await FirebaseInitializer.call(options: firebaseOptions);
+Future<void> _initializeApp() async {
+  // Locked Leaf: Firebase removed. Errors are still caught, but only printed locally.
   CrashlyticsInitializer.call();
   RemoteConfigInitializer.call();
 
