@@ -11,7 +11,10 @@ class FirebaseInitializer {
   /// Firebase/Google domains are unreachable on the user's network. Sets
   /// [kFirebaseAvailable] so downstream adaptors can fall back gracefully.
   static Future<void> call({FirebaseOptions? options}) async {
-    if (Platform.isLinux) return;
+    // Locked Leaf: never start Firebase. No analytics, no crash reports, no Firestore.
+    // kFirebaseAvailable stays false, so the app uses the built-in "None" adaptors.
+    kFirebaseAvailable = false;
+    return;
 
     try {
       await Firebase.initializeApp(options: options).timeout(_timeout);
