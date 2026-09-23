@@ -11,8 +11,6 @@ import 'package:storypad/core/services/remote_config/adaptors/base_remote_config
 import 'package:storypad/core/types/app_logo.dart';
 
 const String kAppName = String.fromEnvironment('APP_NAME');
-const String kRevenueCatAndroidApiKey = String.fromEnvironment('REVENUE_CAT_ANDROID_API_KEY');
-const String kRevenueCatIosApiKey = String.fromEnvironment('REVENUE_CAT_IOS_API_KEY');
 const String kEmailHasherSecreyKey = String.fromEnvironment('EMAIL_HASHER_SECRET_KEY');
 const String kGoogleMapsAndroidApiKey = String.fromEnvironment('GOOGLE_MAPS_ANDROID_API_KEY');
 const String kGoogleMapsIosApiKey = String.fromEnvironment('GOOGLE_MAPS_IOS_API_KEY');
@@ -33,10 +31,6 @@ const String kDefaultFontFamily = 'Quicksand';
 const FontWeight kDefaultFontWeight = FontWeight.normal;
 const FontWeight kTitleDefaultFontWeight = FontWeight.w500;
 
-final bool kIAPEnabled =
-    (Platform.isAndroid && kRevenueCatAndroidApiKey.trim().isNotEmpty) ||
-    (Platform.isIOS && kRevenueCatIosApiKey.trim().isNotEmpty) ||
-    (Platform.isMacOS && kRevenueCatIosApiKey.trim().isNotEmpty);
 
 final bool kSupportCamera = Platform.isAndroid || Platform.isIOS;
 final bool kSupportQuickActions = Platform.isAndroid || Platform.isIOS;

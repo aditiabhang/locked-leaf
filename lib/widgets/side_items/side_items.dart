@@ -76,7 +76,7 @@ class SideItems {
         selectedIconData: SpIcons.tag,
         onTap: (context, route) => context.read<RootProvider>().navigate(route),
       ),
-      if (kIAPEnabled && enableRelaxSounds)
+      if (enableRelaxSounds)
         IconButtonSideItem(
           route: const RelaxSoundsRoute(),
           title: tr('general.sounds'),
@@ -88,7 +88,7 @@ class SideItems {
   }
 
   static List<BaseSideItem> getEndDrawerItems(BuildContext context, HomeViewModel homeViewModel) {
-    bool showProBanner = kIAPEnabled && !context.read<InAppPurchaseProvider>().isProUser;
+    bool showProBanner = !context.read<InAppPurchaseProvider>().isProUser;
 
     return [
       CustomSideItem.custom(builder: (context) => SurveyBanner(homeViewModel: homeViewModel)),
@@ -184,7 +184,7 @@ class SideItems {
     required bool enableRelaxSounds,
   }) {
     return [
-      if (kIAPEnabled && enableRelaxSounds)
+      if (enableRelaxSounds)
         TimelineSideBarItem(
           icon: SpIcons.musicNote,
           tooltip: tr('paywall_features.relax_sounds.title'),

@@ -1,7 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:purchases_flutter/purchases_flutter.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:storypad/core/constants/app_constants.dart';
 import 'package:storypad/core/services/email_hasher_service.dart';
@@ -12,9 +11,6 @@ import 'package:storypad/widgets/sp_icons.dart';
 import 'package:storypad/widgets/sp_single_state_widget.dart';
 
 class SpShareLogsBottomSheet extends BaseBottomSheet {
-  static bool? rcatAnonymous;
-  static bool? isConfigured;
-  static String? rcatAppUserID;
   static String? backupEmail;
   static String? emailHash;
 
@@ -27,10 +23,6 @@ class SpShareLogsBottomSheet extends BaseBottomSheet {
   }) async {
     backupEmail = context.read<BackupProvider>().currentGoogleUser?.email;
     emailHash = EmailHasherService(secretKey: kEmailHasherSecreyKey).hmacEmail(backupEmail ?? "");
-
-    rcatAnonymous = await Purchases.isAnonymous;
-    rcatAppUserID = await Purchases.appUserID;
-    isConfigured = await Purchases.isConfigured;
 
     if (context.mounted) {
       return super.show(
@@ -52,12 +44,8 @@ class SpShareLogsBottomSheet extends BaseBottomSheet {
         "=== StoryPad Debug Information ===",
         "App Name: $kAppName",
         "Cupertino Mode: $kIsCupertino",
-        "IAP Enabled: $kIAPEnabled",
         "",
-        "=== RevenueCAT ===",
-        "Configured: $isConfigured",
-        "Anonymous: $rcatAnonymous",
-        "App User ID: $rcatAppUserID",
+        "=== Backup ===",
         "Backup Email: $backupEmail",
         "Email Hash: $emailHash",
         "",
