@@ -64,3 +64,6 @@ ios/Flutter/GeneratedDartDefines.xcconfig
 
 # Temporary files from bin scripts
 bin/.tmp
+
+# Locked Leaf: personal notes, never pushed
+/private/
