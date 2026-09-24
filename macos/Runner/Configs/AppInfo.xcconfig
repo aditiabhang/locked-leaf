@@ -5,10 +5,10 @@
 // 'flutter create' template.
 
 // The application's name. By default this is also the title of the Flutter window.
-PRODUCT_NAME = storypad
+PRODUCT_NAME = LockedLeaf
 
 // The application's bundle identifier
-PRODUCT_BUNDLE_IDENTIFIER = com.tc.writestory
+PRODUCT_BUNDLE_IDENTIFIER = com.aditiabhang.lockedleaf
 
 // The copyright displayed in application information
-PRODUCT_COPYRIGHT = Copyright © 2025 com.tc.writestory. All rights reserved.
+PRODUCT_COPYRIGHT = Locked Leaf, a personal fork of StoryPad (GPL-3.0).

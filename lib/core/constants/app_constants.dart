@@ -10,7 +10,7 @@ import 'package:storypad/core/services/error_reporting/adaptors/base_error_repor
 import 'package:storypad/core/services/remote_config/adaptors/base_remote_config_adaptor.dart';
 import 'package:storypad/core/types/app_logo.dart';
 
-const String kAppName = String.fromEnvironment('APP_NAME');
+const String kAppName = String.fromEnvironment('APP_NAME', defaultValue: 'Locked Leaf');
 const String kEmailHasherSecreyKey = String.fromEnvironment('EMAIL_HASHER_SECRET_KEY');
 const String kGoogleMapsAndroidApiKey = String.fromEnvironment('GOOGLE_MAPS_ANDROID_API_KEY');
 const String kGoogleMapsIosApiKey = String.fromEnvironment('GOOGLE_MAPS_IOS_API_KEY');

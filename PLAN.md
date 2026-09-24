@@ -38,7 +38,7 @@ A private, security-hardened desktop journal. Forked from StoryPad, with encrypt
    - Check: I can fill it in for today in under a minute.
 5. Build a release .app for daily use (fast launch), keep bin/dev for development. ✅
    - Build: `flutter build macos --release --flavor community -t lib/main_community.dart --dart-define=CUPERTINO=yes --dart-define-from-file=bin/.tmp/private_keys/dart_defines/community.json`
-   - Install: `cp -R build/macos/Build/Products/Release-community/storypad.app "/Applications/Locked Leaf.app"`
+   - Install: `rm -rf "/Applications/Locked Leaf.app" && cp -R build/macos/Build/Products/Release-community/LockedLeaf.app "/Applications/Locked Leaf.app"` (app file is LockedLeaf.app since M1.5)
    - Debug and release share one database (same bundle ID) — don't run both at once.
 
 ## Setup fixes so far (M1)
