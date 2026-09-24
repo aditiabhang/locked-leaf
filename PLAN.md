@@ -20,7 +20,9 @@ A private, security-hardened desktop journal. Forked from StoryPad, with encrypt
 - Gap: Firebase Analytics + Crashlytics send data to Google.
 - Gap: local ObjectBox database looks unencrypted at rest.
 - Gap: Google Drive backups likely not encrypted before upload (to confirm).
-- Gap: RevenueCat in-app purchases (not needed).
+- Gap: RevenueCat in-app purchases (not needed). → removed in M1
+- Gap: still downloads config/templates/sounds from static.storypad.me, Google Fonts, map tiles (reveals IP, no entries sent). Cut or replace in M2/M5.
+- Gap: Location + microphone entitlements still on. Trim in M5.
 
 ## Milestones (one at a time)
 
@@ -45,7 +47,13 @@ A private, security-hardened desktop journal. Forked from StoryPad, with encrypt
 - ObjectBox needs a macOS App Group prefixed with my Team ID → set to 4ZD6MH342Y in base_box.dart + community entitlements.
 - Impeller crashed on window resize → disabled via FLTEnableImpeller=false in macos/Runner/Info.plist.
 
-### M2 — Encrypt data at rest  ← next
+### M1.5 — Quick rebrand: name + icon  ← next
+- Why: official StoryPad and Locked Leaf look the same in Cmd+Tab, menu bar, Spotlight.
+- Set app display name to "Locked Leaf" (menu bar, Cmd+Tab, Spotlight) and give it its own icon.
+- Check: Cmd+Tab shows "Locked Leaf" with the new icon; official StoryPad still shows "StoryPad".
+- Full rebrand (theme, in-app text) stays in M6.
+
+### M2 — Encrypt data at rest
 - First step: upgrade to latest Flutter on its own. Rebuild, check, commit.
 
 ### M3 — Habit tracker (new feature, built MVVM-style like the rest of StoryPad)
