@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 120 120">
+  <!-- Locked Leaf app icon · "Journal + leaf", Sage variant. Source for macOS AppIcon sizes (M1.5). -->
+  <rect width="120" height="120" rx="26" fill="#DCE8DE"/>
+  <rect x="80" y="24" width="12" height="72" rx="3" fill="#F7F3EA"/>
+  <line x1="84" y1="30" x2="84" y2="90" stroke="#D8D1C1" stroke-width="1"/>
+  <line x1="88" y1="30" x2="88" y2="90" stroke="#D8D1C1" stroke-width="1"/>
+  <path d="M46 96 V110 L50.5 105 L55 110 V96 Z" fill="#7CC48F"/>
+  <rect x="28" y="20" width="58" height="80" rx="7" fill="#24362C"/>
+  <rect x="28" y="20" width="11" height="80" rx="7" fill="#18251E"/>
+  <rect x="34" y="20" width="5" height="80" fill="#18251E"/>
+  <path d="M60 38 C73 45 75 64 60 74 C45 64 47 45 60 38 Z" fill="#7CC48F"/>
+  <line x1="60" y1="44" x2="60" y2="70" stroke="#24362C" stroke-width="1.8" stroke-linecap="round"/>
+  <line x1="60" y1="74" x2="60" y2="80" stroke="#7CC48F" stroke-width="2" stroke-linecap="round"/>
+  <rect x="78" y="51" width="19" height="15" rx="4" fill="#E0A04A"/>
+  <circle cx="87.5" cy="56.5" r="2.3" fill="#24362C"/>
+  <rect x="86.7" y="57.5" width="1.6" height="4.5" rx="0.8" fill="#24362C"/>
+</svg>

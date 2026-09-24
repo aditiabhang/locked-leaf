@@ -50,6 +50,8 @@ A private, security-hardened desktop journal. Forked from StoryPad, with encrypt
 ### M1.5 — Quick rebrand: name + icon  ← next
 - Why: official StoryPad and Locked Leaf look the same in Cmd+Tab, menu bar, Spotlight.
 - Set app display name to "Locked Leaf" (menu bar, Cmd+Tab, Spotlight) and give it its own icon.
+- Icon chosen: "Journal + leaf", Sage variant. Source: `design/locked-leaf-icon-sage.svg` → export macOS AppIcon sizes (16–1024).
+- Palette: tile #DCE8DE, cover #24362C, leaf #7CC48F, clasp #E0A04A, pages #F7F3EA.
 - Check: Cmd+Tab shows "Locked Leaf" with the new icon; official StoryPad still shows "StoryPad".
 - Full rebrand (theme, in-app text) stays in M6.
 
